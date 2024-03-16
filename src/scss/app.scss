@@ -51,7 +51,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(1, 1fr);
-    grid-column-gap: 11px;
+    grid-column-gap: 11px;  
 
     @media (max-width: 1400px) {
       grid-template-columns: repeat(3, 1fr);
@@ -60,6 +60,7 @@ body {
     @media (max-width: 1060px) {
       grid-template-columns: repeat(2, 1fr);
     }
+
 
     @media (max-width: 730px) {
       grid-template-columns: repeat(1, 1fr);
@@ -83,6 +84,7 @@ body {
 
       .sort {
         padding-left: 20px;
+        text-align: center;
         b {
           display: none;
         }
