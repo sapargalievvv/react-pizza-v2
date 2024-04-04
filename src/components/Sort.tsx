@@ -37,11 +37,19 @@ const SortPopup: React.FC<SortPopupProps> = React.memo(({ value }) => {
 
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      const _event = event as PopupClick;
+      let target = event.target as Node | null;
+      const sortElement = sortRef.current;
 
-      if (sortRef.current && !_event.path.includes(sortRef.current)) {
-        setOpen(false);
+      while (target) {
+        if (target === sortElement) {
+          // Click occurred inside sortRef, do nothing
+          return;
+        }
+        target = target.parentNode;
       }
+
+      // Click occurred outside sortRef, close the popup
+      setOpen(false);
     };
 
     document.body.addEventListener('click', handleClickOutside);
