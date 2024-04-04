@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import qs from 'qs';
-
 // actions
 import {
   FilterSliceState,
@@ -107,9 +106,9 @@ export const Home: React.FC = () => {
         <div className="content__top">
           <Categories
             value={categoryId}
-            onChangeCategory={(idx: number) => dispatch(setCategoryId(idx))}
+            onChangeCategory={React.useCallback((idx: number) => dispatch(setCategoryId(idx)), [])}
           />
-          <Sort />
+          <Sort value={sort} />
         </div>
 
         <h2 className="content__title">Все пиццы</h2>
