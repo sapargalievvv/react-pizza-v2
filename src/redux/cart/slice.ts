@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { PayloadAction } from '@reduxjs/toolkit';
-import { getCartFromLS } from '../../../utils/getCartFromLS';
-import { calcTotalPrice } from '../../../utils/calcTotalPrice';
+import { getCartFromLS } from '../../utils/getCartFromLS';
+import { calcTotalPrice } from '../../utils/calcTotalPrice';
 import { CartSliceState, CartItem } from './types';
 
 const { items, totalPrice } = getCartFromLS();
