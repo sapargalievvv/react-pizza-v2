@@ -15,7 +15,7 @@ import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import Pizzablock from '../components/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
-import Pagination from '../Pagination';
+import { Pagination } from '../components/Pagination';
 import { useAppDispatch } from '../redux/store';
 
 export const Home: React.FC = () => {
@@ -95,7 +95,8 @@ export const Home: React.FC = () => {
     //   isSearch.current = false;
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
-  const pizzas = items.map((obj: any) => <Pizzablock key={obj.id} {...obj} />);
+  const foundedPizzas = items.filter((item) => item.title.toLowerCase().includes(searchValue));
+  const pizzas = foundedPizzas.map((obj: any) => <Pizzablock key={obj.id} {...obj} />);
   const skeletons = [...new Array(4)].map((_, index) => <Skeleton key={index} />);
 
   return (
