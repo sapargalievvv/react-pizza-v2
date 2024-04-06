@@ -95,7 +95,9 @@ export const Home: React.FC = () => {
     //   isSearch.current = false;
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
-  const foundedPizzas = items.filter((item) => item.title.toLowerCase().includes(searchValue));
+  const foundedPizzas = items.filter((item) =>
+    item.title.toLowerCase().includes(searchValue.toLowerCase()),
+  );
   const pizzas = foundedPizzas.map((obj: any) => <Pizzablock key={obj.id} {...obj} />);
   const skeletons = [...new Array(4)].map((_, index) => <Skeleton key={index} />);
 
